@@ -21,7 +21,7 @@ export function HeroSection() {
             <div className="box-border flex justify-center outline-[oklab(0.708_0_0_/_0.5)] pt-3.5 md:pt-7">
               <Link 
                 to="/login"
-                className="text-white text-sm bg-black block leading-[21px] outline-[oklab(0.708_0_0_/_0.5)] px-[21px] py-[10.5px] md:text-[15.75px] md:leading-[24.5px] md:px-7 md:py-3.5 hover:bg-gray-800 transition-all duration-300 ease-in-out hover:rounded-xl hover:scale-105"
+                className="text-white text-sm bg-black block leading-[21px] outline-[oklab(0.708_0_0_/_0.5)] px-[21px] py-[10.5px] md:text-[15.75px] md:leading-[24.5px] md:px-7 md:py-3.5 transition-all duration-300 ease-in-out hover:bg-gray-800 hover:scale-105 hover:shadow-lg"
               >
                 Start Your Journey
               </Link>
@@ -31,4 +31,5 @@ export function HeroSection() {
       </div>
     </section>
   );
+}
 }
