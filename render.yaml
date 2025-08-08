@@ -1,14 +1,13 @@
-services:
-  # 1. The PostgreSQL Database
-  - type: pserv
-    name: carbon-counter-db
+# Top-level key for all database definitions
+databases:
+  - name: carbon-counter-db
+    databaseName: carbon_counter_db
+    user: postgres
     plan: free
-    postgres:
-      databaseName: carbon_counter_db
-      user: postgres
-      majorVersion: 14
 
-  # 2. The FastAPI Backend
+# Top-level key for all services (web, workers, static sites)
+services:
+  # 1. The FastAPI Backend
   - type: web
     name: carbon-counter-backend
     runtime: docker
@@ -16,17 +15,18 @@ services:
     plan: free
     healthCheckPath: /
     envVars:
+      # This correctly references the database defined above
       - key: DATABASE_URL
-        fromService:
-          type: pserv
+        fromDatabase:
           name: carbon-counter-db
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
 
-  # 3. The React Frontend
-  - type: static site
+  # 2. The React Frontend
+  - type: web
     name: carbon-counter-frontend
+    runtime: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./frontend/dist
     envVars:
