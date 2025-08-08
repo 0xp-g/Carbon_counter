@@ -56,7 +56,7 @@ export function JoinSection() {
             Every measurement matters. Every reduction counts. Every individual action contributes to our collective climate solution.
           </p>
         </div>
-        <div className="text-[oklch(0.145_0_0)] bg-white box-border gap-x-[21px] flex flex-col max-w-[392px] outline-[oklab(0.708_0_0_/_0.5)] gap-y-[21px] mx-auto p-7 rounded-[12.75px] border-2 border-solid">
+        <div className="text-[oklch(0.145_0_0)] bg-white box-border gap-x-[21px] flex flex-col max-w-[392px] outline-[oklab(0.708_0_0_/_0.5)] gap-y-[21px] mx-auto p-7 rounded-[12.75px] border-2 border-solid transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
           <div className="box-border outline-[oklab(0.708_0_0_/_0.5)]">
             <div className="box-border outline-[oklab(0.708_0_0_/_0.5)] text-center mb-[21px]">
               <h3 className="text-[21px] font-medium box-border tracking-[-0.21px] leading-7 outline-[oklab(0.708_0_0_/_0.5)] mb-[7px]">Ready to try?</h3>
@@ -93,21 +93,7 @@ export function JoinSection() {
       <div className="text-white bg-[oklch(0.21_0.034_264.665)] box-border outline-[oklab(0.708_0_0_/_0.5)] py-[42px]">
         <div className="box-border max-w-[784px] outline-[oklab(0.708_0_0_/_0.5)] mx-auto px-[21px]">
           <div className="box-border outline-[oklab(0.708_0_0_/_0.5)] text-center">
-            <div className="box-border flex justify-center outline-[oklab(0.708_0_0_/_0.5)] mb-7">
-              <button className="text-[oklch(0.707_0.022_261.325)] font-medium bg-transparent block outline-[oklab(0.708_0_0_/_0.5)] mr-[42px] p-0 hover:text-white">
-                Contact
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-[oklch(0.707_0.022_261.325)] font-medium bg-transparent block outline-[oklab(0.708_0_0_/_0.5)] mr-[42px] p-0 hover:text-white"
-              >
-                About
-              </button>
-              <button className="text-[oklch(0.707_0.022_261.325)] font-medium bg-transparent block outline-[oklab(0.708_0_0_/_0.5)] p-0 hover:text-white">
-                Documentation
-              </button>
-            </div>
-            <div className="box-border outline-[oklab(0.708_0_0_/_0.5)] pt-7 border-t border-solid border-[oklch(0.278_0.033_256.848)]">
+            <div className="box-border outline-[oklab(0.708_0_0_/_0.5)] pt-7">
               <p className="text-[oklch(0.872_0.01_258.338)] text-[17.5px] font-medium box-border leading-[24.5px] outline-[oklab(0.708_0_0_/_0.5)]">
                 "Every step towards sustainability is a step towards a better tomorrow."
               </p>
