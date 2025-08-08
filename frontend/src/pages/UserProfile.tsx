@@ -5,7 +5,7 @@ import { LoggedInNav } from '../components/LoggedInNav';
 const UserProfile: React.FC = () => {
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState('Alex Johnson');
+  const [username, setUsername] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const [userEmail, setUserEmail] = useState('');
