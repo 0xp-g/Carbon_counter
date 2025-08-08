@@ -12,7 +12,8 @@ app = FastAPI(title=settings.PROJECT_NAME, version=settings.PROJECT_VERSION)
 # Define the list of allowed origins
 origins = [
     "http://localhost:5173",
-    "http://localhost:3000", # Often used by Create React App
+    "http://localhost:3000", 
+    "https://carbon-counter-frontend.onrender.com",
 ]
 
 # CORS Middleware
