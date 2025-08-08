@@ -1,8 +1,10 @@
 # backend/app/crud/carbon_entry.py
 # --- MODIFIED FILE ---
 # The calculation logic is updated with more detailed emission factors.
+# Added a new function to calculate total emissions for a user.
 
 from sqlalchemy.orm import Session
+from sqlalchemy import func
 from ..models.carbon_entry import CarbonEntry
 from ..schemas.carbon_entry import CarbonEntryCreate
 from typing import Tuple
@@ -62,3 +64,10 @@ def create_carbon_entry(db: Session, entry: CarbonEntryCreate, user_id: int):
 
 def get_user_entries(db: Session, user_id: int, skip: int = 0, limit: int = 100):
     return db.query(CarbonEntry).filter(CarbonEntry.owner_id == user_id).order_by(CarbonEntry.entry_date.desc(), CarbonEntry.id.desc()).offset(skip).limit(limit).all()
+
+def get_total_emissions_for_user(db: Session, user_id: int) -> float:
+    """
+    Calculates the total CO₂ emissions for a specific user.
+    """
+    total_co2 = db.query(func.sum(CarbonEntry.total_co2)).filter(CarbonEntry.owner_id == user_id).scalar()
+    return round(total_co2, 2) if total_co2 is not None else 0.0
