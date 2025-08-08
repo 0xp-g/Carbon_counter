@@ -20,7 +20,7 @@ const GoalTracker: React.FC<GoalTrackerProps> = ({ token, weeklyGoal, weeklyEmis
     if (!token || !target) return;
 
     try {
-      await fetch('http://127.0.0.1:8000/goals/', {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/goals/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
