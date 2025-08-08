@@ -8,7 +8,10 @@ export function FoundationSection() {
         <h2 className="text-[26.25px] font-bold box-border leading-[31.5px] outline-[oklab(0.708_0_0_/_0.5)] text-center mb-[42px] md:text-[42px] md:leading-[42px] md:mb-[70px]">Our Foundation</h2>
         <div className="box-border gap-x-7 grid grid-cols-none outline-[oklab(0.708_0_0_/_0.5)] gap-y-7 md:gap-x-[42px] md:grid-cols-[repeat(3,minmax(0px,1fr))] md:gap-y-[42px]">
           {foundationSteps.map((step) => (
-            <div key={step.id} className="text-black bg-white box-border gap-x-[21px] flex flex-col outline-[oklab(0.708_0_0_/_0.5)] gap-y-[21px] p-[35px] rounded-[12.75px]">
+            <div 
+              key={step.id} 
+              className="text-black bg-white box-border gap-x-[21px] flex flex-col outline-[oklab(0.708_0_0_/_0.5)] gap-y-[21px] p-[35px] rounded-[12.75px] transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+            >
               <div className="box-border outline-[oklab(0.708_0_0_/_0.5)]">
                 <div className="box-border h-14 outline-[oklab(0.708_0_0_/_0.5)] w-14 mb-[21px]">
                   <img src={step.icon} alt="Icon" className="box-border h-full outline-[oklab(0.708_0_0_/_0.5)] w-full" />
@@ -30,4 +33,3 @@ export function FoundationSection() {
     </div>
   );
 }
-
