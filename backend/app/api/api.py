@@ -2,7 +2,7 @@
 # --- MODIFIED FILE ---
 
 from fastapi import APIRouter
-from .endpoints import auth, carbon, goals, leaderboard, streak, suggestions, export 
+from .endpoints import auth, carbon, goals, leaderboard, streak, suggestions, export, users
 
 api_router = APIRouter()
 api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
@@ -12,3 +12,5 @@ api_router.include_router(leaderboard.router, prefix="/leaderboard", tags=["lead
 api_router.include_router(streak.router, prefix="/streak", tags=["streak"])
 api_router.include_router(suggestions.router, prefix="/suggestions", tags=["suggestions"])
 api_router.include_router(export.router, prefix="/export", tags=["export"])
+api_router.include_router(users.router, prefix="/users", tags=["users"])
+
