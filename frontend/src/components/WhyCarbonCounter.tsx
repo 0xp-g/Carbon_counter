@@ -18,13 +18,23 @@ export function WhyCarbonCounterSection() {
           {filteredFeatures.map((feature) => (
             <div 
               key={feature.id} 
-              className="box-border outline-[oklab(0.708_0_0_/_0.5)] text-center transition-all duration-300 ease-in-out rounded-[12.75px] hover:scale-105 hover:shadow-lg"
+              className="bg-white box-border p-8 rounded-xl transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
             >
-              <div className="items-center bg-black box-border flex h-14 justify-center outline-[oklab(0.708_0_0_/_0.5)] w-14 mb-3.5 mx-auto rounded-full">
-                <img src={feature.icon} alt="Icon" className="text-white box-border h-7 outline-[oklab(0.708_0_0_/_0.5)] w-7" />
+              <div className="items-center bg-black box-border flex h-14 justify-center w-14 mb-3.5 mx-auto rounded-full">
+                <img src={feature.icon} alt="Icon" className="text-white box-border h-7 w-7" />
               </div>
-              <h3 className="text-[17.5px] font-semibold box-border leading-[24.5px] outline-[oklab(0.708_0_0_/_0.5)] mb-3.5">{feature.title}</h3>
-              <p className="text-[oklch(0.446_0.03_256.802)] box-border outline-[oklab(0.708_0_0_/_0.5)]">{feature.description}</p>
+              <h3 className="text-[17.5px] font-semibold leading-[24.5px] mb-3.5 mt-5">{feature.title}</h3>
+              <p className="text-[oklch(0.446_0.03_256.802)] leading-[24.5px]">
+                {
+                  feature.id === 'tracking' ?
+                  'Our platform meticulously calculates your carbon footprint from daily activities like electricity usage, transportation, and food choices. We provide real-time estimates to help you understand your impact instantly.' :
+                  feature.id === 'analytics' ?
+                  'We offer comprehensive and insightful analytics that turn your raw data into clear, easy-to-understand visualizations. Track your progress over time, identify patterns, and pinpoint your biggest sources of emissions to make informed decisions.' :
+                  feature.id === 'goals' ?
+                  'Set personalized and achievable reduction targets. Our goal-setting feature helps you stay motivated by tracking your progress and celebrating milestones as you work towards a more sustainable lifestyle.' :
+                  ''
+                }
+              </p>
             </div>
           ))}
         </div>
