@@ -1,6 +1,6 @@
 # backend/Dockerfile
 # --- MODIFIED FILE ---
-# Updated to use the new start.sh script.
+# Startup logic is now directly in the CMD instruction to avoid file format errors.
 
 # Use an official Python runtime as a parent image
 FROM python:3.12-slim
@@ -17,10 +17,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application's code from the backend/app folder
 COPY ./backend/app /app/app
 
-# Copy the startup script into the container
-COPY ./backend/start.sh /app/start.sh
-# Make the script executable
-RUN chmod +x /app/start.sh
-
 # Command to run the application
-CMD ["/app/start.sh"]
+# This now includes the table creation step before starting the server.
+CMD ["sh", "-c", "python -m app.db.create_tables && gunicorn -k uvicorn.workers.UvicornWorker -w 4 -b 0.0.0.0:8000 app.main:app"]
