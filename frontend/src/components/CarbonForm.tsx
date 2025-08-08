@@ -33,7 +33,7 @@ const CarbonForm: React.FC<CarbonFormProps> = ({ token, onNewEntry }) => {
 
     try {
       const today = new Date().toISOString().split('T')[0];
-      const response = await fetch('http://127.0.0.1:8000/carbon/', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/carbon/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
