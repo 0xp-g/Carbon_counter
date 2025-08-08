@@ -14,7 +14,7 @@ const StreakTracker: React.FC<StreakTrackerProps> = ({ streak }) => {
       <h2 className="mb-4 text-2xl font-bold">Your Streak</h2>
       <div className="flex items-center justify-center space-x-4">
         <Flame 
-          className={`h-16 w-16 ${streak > 0 ? 'text-black' : 'text-gray-300'}`} 
+          className={`h-16 w-16 ${streak > 0 ? 'text-red-500' : 'text-gray-300'}`} 
           fill={streak > 0 ? 'currentColor' : 'none'}
         />
         <div className="text-center">

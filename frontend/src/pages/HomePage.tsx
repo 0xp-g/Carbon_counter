@@ -16,7 +16,7 @@ import { JoinSection } from '../components/JoinSection';
 const HomePage: React.FC = () => {
   return (
     // The extra divs were removed. This is the correct structure.
-    <div className="bg-white">
+    <div className="bg-black">
         <Navigation />
         <HeroSection />
         <WhyCarbonCounterSection />

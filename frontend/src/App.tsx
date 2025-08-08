@@ -1,6 +1,6 @@
 // frontend/src/App.tsx
 // --- MODIFIED FILE ---
-// Added the new route for the Leaderboard page.
+// Added the new route for the User Profile page.
 
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/Dashboard';
 import HomePage from './pages/HomePage';
 import LeaderboardPage from './pages/LeaderboardPage'; // Import the new page
+
 
 function App() {
   const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
@@ -91,4 +92,3 @@ export const Navigation: React.FC = () => {
     </nav>
   );
 };
-
