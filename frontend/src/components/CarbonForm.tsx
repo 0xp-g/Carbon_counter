@@ -83,7 +83,7 @@ const CarbonForm: React.FC<CarbonFormProps> = ({ token, onNewEntry }) => {
           <Label htmlFor="transport">Transportation</Label>
           <Select value={transport} onValueChange={setTransport}>
             <SelectTrigger id="transport"><SelectValue placeholder="Select transport type" /></SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white">
               <SelectItem value="none">No travel</SelectItem>
               <SelectItem value="petrol_car">Petrol Car</SelectItem>
               <SelectItem value="electric_car">Electric Car</SelectItem>
@@ -103,7 +103,7 @@ const CarbonForm: React.FC<CarbonFormProps> = ({ token, onNewEntry }) => {
           <Label htmlFor="food">Main Meal Today</Label>
           <Select value={food} onValueChange={setFood}>
             <SelectTrigger id="food"><SelectValue placeholder="Select a meal type" /></SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white">
               <SelectItem value="none">No main meal / Snacks</SelectItem>
               <SelectItem value="beef">Beef</SelectItem>
               <SelectItem value="pork">Pork</SelectItem>
