@@ -1,11 +1,9 @@
-# This top-level key is for defining databases.
 databases:
   - name: carbon-counter-db
     databaseName: carbon_counter_db
     user: postgres
     plan: free
 
-# This top-level key is for web services, static sites, etc.
 services:
   # 1. The FastAPI Backend
   - type: web
@@ -23,13 +21,11 @@ services:
       - key: SECRET_KEY
         generateValue: true
 
-  # 2. The React Frontend
+  # 2. The React Frontend (Defined as a Static Site)
   - type: static
     name: carbon-counter-frontend
-    runtime: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./frontend/dist
-    plan: free
     envVars:
       - key: VITE_API_BASE_URL
         fromService:
