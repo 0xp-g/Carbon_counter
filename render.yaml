@@ -2,7 +2,7 @@
 databases:
   - name: carbon-counter-db
     databaseName: carbon_counter_db
-    user: postgres
+    # The 'user: postgres' line has been removed to fix the error.
     plan: free
 
 # Top-level key for all services (web, workers, static sites)
