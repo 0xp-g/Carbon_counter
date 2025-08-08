@@ -9,6 +9,7 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/Dashboard';
 import HomePage from './pages/HomePage';
 import LeaderboardPage from './pages/LeaderboardPage'; // Import the new page
+import UserProfile from './pages/UserProfile'; // Import the new UserProfile page
 
 
 function App() {
@@ -45,6 +46,10 @@ function App() {
         <Route
           path="/leaderboard"
           element={token ? <LeaderboardPage /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/profile"
+          element={token ? <UserProfile /> : <Navigate to="/login" />}
         />
       </Routes>
     </BrowserRouter>
