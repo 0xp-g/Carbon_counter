@@ -1,12 +1,9 @@
-# Top-level key for all database definitions
 databases:
   - name: carbon-counter-db
     databaseName: carbon_counter_db
     plan: free
 
-# Top-level key for all services (web, workers, static sites)
 services:
-  # 1. The FastAPI Backend
   - type: web
     name: carbon-counter-backend
     runtime: docker
@@ -14,7 +11,6 @@ services:
     plan: free
     healthCheckPath: /
     envVars:
-      # This correctly references the database defined above
       - key: DATABASE_URL
         fromDatabase:
           name: carbon-counter-db
@@ -22,7 +18,6 @@ services:
       - key: SECRET_KEY
         generateValue: true
 
-  # 2. The React Frontend (defined as a static site)
   - type: web
     name: carbon-counter-frontend
     runtime: static
@@ -30,10 +25,7 @@ services:
     staticPublishPath: ./frontend/dist
     envVars:
       - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: carbon-counter-backend
-          property: url
+        value: https://carbon-counter-backend.onrender.com
     routes:
       - type: rewrite
         source: /*
