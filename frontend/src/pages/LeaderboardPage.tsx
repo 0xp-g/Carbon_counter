@@ -36,7 +36,7 @@ const LeaderboardPage: React.FC = () => {
         //setLeaderboard(mockLeaderboardData);
 
          //Original fetch logic, kept for reference but commented out
-         const response = await fetch('http://127.0.0.1:8000/leaderboard/', {
+         const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/leaderboard/`, {
            headers: { 'Authorization': `Bearer ${token}` }
          });
          if (!response.ok) {

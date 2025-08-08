@@ -32,8 +32,8 @@ services:
       - db
     command: >
       sh -c "python app/db/wait_for_db.py &&
-             python -m app.db.create_tables &&
-             uvicorn app.main:app --host 0.0.0.0 --port 8000"
+         python -m app.db.create_tables &&
+         gunicorn -k uvicorn.workers.UvicornWorker -w 4 -b 0.0.0.0:8000 app.main:app"
 
   frontend:
     build: ./frontend
