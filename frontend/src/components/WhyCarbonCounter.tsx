@@ -18,9 +18,9 @@ export function WhyCarbonCounterSection() {
           {filteredFeatures.map((feature) => (
             <div 
               key={feature.id} 
-              className="box-border outline-[oklab(0.708_0_0_/_0.5)] text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+              className="box-border outline-[oklab(0.708_0_0_/_0.5)] text-center transition-all duration-300 ease-in-out rounded-[12.75px] hover:scale-105 hover:shadow-lg"
             >
-              <div className="items-center bg-black box-border flex h-14 justify-center outline-[oklab(0.708_0_0_/_0.5)] w-14 mb-3.5 mx-auto rounded-[3.35544e+07px]">
+              <div className="items-center bg-black box-border flex h-14 justify-center outline-[oklab(0.708_0_0_/_0.5)] w-14 mb-3.5 mx-auto rounded-full">
                 <img src={feature.icon} alt="Icon" className="text-white box-border h-7 outline-[oklab(0.708_0_0_/_0.5)] w-7" />
               </div>
               <h3 className="text-[17.5px] font-semibold box-border leading-[24.5px] outline-[oklab(0.708_0_0_/_0.5)] mb-3.5">{feature.title}</h3>
@@ -32,4 +32,3 @@ export function WhyCarbonCounterSection() {
     </div>
   );
 }
-
