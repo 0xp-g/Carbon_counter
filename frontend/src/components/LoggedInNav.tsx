@@ -13,6 +13,7 @@ export const LoggedInNav: React.FC<LoggedInNavProps> = ({ handleLogout }) => {
   const location = useLocation();
   const isDashboard = location.pathname === '/dashboard';
   const isLeaderboard = location.pathname === '/leaderboard';
+  const isProfile = location.pathname === '/profile';
 
   return (
     <nav className="border-b border-gray-200 bg-white">
@@ -33,6 +34,12 @@ export const LoggedInNav: React.FC<LoggedInNavProps> = ({ handleLogout }) => {
               className={`px-3 py-2 rounded-md text-sm font-medium ${isLeaderboard ? 'bg-gray-100 text-black' : 'text-gray-500 hover:bg-gray-50'}`}
             >
               Leaderboard
+            </Link>
+            <Link 
+              to="/profile" 
+              className={`px-3 py-2 rounded-md text-sm font-medium ${isProfile ? 'bg-gray-100 text-black' : 'text-gray-500 hover:bg-gray-50'}`}
+            >
+              User Profile
             </Link>
             <button
               onClick={handleLogout}
