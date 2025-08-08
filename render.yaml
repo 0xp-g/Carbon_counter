@@ -1,13 +1,14 @@
-# This top-level key is for defining databases.
-databases:
-  - name: carbon-counter-db
-    databaseName: carbon_counter_db
-    user: postgres
-    plan: free
-
-# This top-level key is for web services and background workers.
 services:
-  # 1. The FastAPI Backend
+  # 1. The PostgreSQL Database
+  - type: pserv
+    name: carbon-counter-db
+    plan: free
+    postgres:
+      databaseName: carbon_counter_db
+      user: postgres
+      majorVersion: 14
+
+  # 2. The FastAPI Backend
   - type: web
     name: carbon-counter-backend
     runtime: docker
@@ -15,18 +16,17 @@ services:
     plan: free
     healthCheckPath: /
     envVars:
-      # This correctly references the database defined in the 'databases' section
       - key: DATABASE_URL
-        fromDatabase:
+        fromService:
+          type: pserv
           name: carbon-counter-db
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
 
-# This top-level key is specifically for static sites.
-staticSites:
-  # 2. The React Frontend
-  - name: carbon-counter-frontend
+  # 3. The React Frontend
+  - type: static site
+    name: carbon-counter-frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./frontend/dist
     envVars:
