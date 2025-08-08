@@ -1,6 +1,6 @@
 services:
   # 1. The PostgreSQL Database
-  - type: db
+  - type: postgres
     name: carbon-counter-db
     databaseName: carbon_counter_db
     user: postgres
